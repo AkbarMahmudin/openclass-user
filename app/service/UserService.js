@@ -18,6 +18,13 @@ class UserService {
 
   async createUser (payload) {
     const { name, email, password } = payload
+
+    // Cek email sudah digunakan
+    const emailExist = await this.#prisma.user.findFirst({ where: { email } })
+    if (emailExist) {
+      throw new ConflictError('Email already exist')
+    }
+
     const user = await this.#prisma.user.create({
       data: {
         name, email, password: bcrypt.hashSync(password, 10)
