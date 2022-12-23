@@ -1,9 +1,18 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const UserService = require('@service/UserService')
+const UserController = require('@controller/UserController')
 
-module.exports = router;
+const { postValidator, putValidator } = require('@utils/validator/UserValidator')
+const userService = new UserService()
+const userController = new UserController(userService)
+
+router.get('/', userController.getUser)
+router.get('/:id', userController.getUser)
+router.post('/', postValidator, userController.createUser)
+router.post('/auth', userController.createAuthentication)
+
+router.put('/:id', putValidator, userController.updateUser)
+
+module.exports = router
