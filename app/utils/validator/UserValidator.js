@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const InvariantError = require('@utils/exceptions/InvariantError')
+const InvariantError = require('../exceptions/InvariantError')
 
 const postValidator = (req, res, next) => {
   try {

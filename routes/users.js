@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const UserService = require('@service/UserService')
-const UserController = require('@controller/UserController')
+const UserService = require('../app/service/UserService')
+const UserController = require('../app/controller/UserController')
 
-const { postValidator, putValidator } = require('@utils/validator/UserValidator')
+const { postValidator, putValidator } = require('../app/utils/validator/UserValidator')
 const userService = new UserService()
 const userController = new UserController(userService)
 

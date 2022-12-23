@@ -1,10 +1,10 @@
 const { PrismaClient } = require('@prisma/client')
 const bcrypt = require('bcrypt')
 
-const { generateToken } = require('@utils/token/TokenManager')
-const NotfoundError = require('@utils/exceptions/NotfoundError')
-const ConflictError = require('@utils/exceptions/ConflictError')
-const AuthenticationError = require('@utils/exceptions/AuthenticationError')
+const { generateToken } = require('../utils/token/TokenManager')
+const NotfoundError = require('../utils/exceptions/NotfoundError')
+const ConflictError = require('../utils/exceptions/ConflictError')
+const AuthenticationError = require('../utils/exceptions/AuthenticationError')
 
 class UserService {
   #prisma
