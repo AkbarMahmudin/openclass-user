@@ -27,7 +27,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "prisma": "^4.7.1"
   },
-  "main": "app.js",
+  "main": "main.js",
   "author": "AkbarMahmudin <wastanami17@gmail.com>",
   "license": "MIT"
 }
